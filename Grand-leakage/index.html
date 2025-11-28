@@ -1,24 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
+
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
-    <title>Grand-Leak.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description"
+        content="Grand-Leakage - Your trusted source for breaking news and latest updates. Stay informed with our professional news portal.">
+    <meta name="keywords" content="news, breaking news, latest news, news portal, grand leakage">
+    <meta name="author" content="Grand-Leakage News Portal">
+    <meta name="theme-color" content="#2563eb">
+    <meta property="og:title" content="Grand-Leakage - News Portal">
+    <meta property="og:description" content="Your trusted source for breaking news and latest updates">
+    <meta property="og:type" content="website">
+    <title>Grand-Leakage - Professional News Portal</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="body">
     <header>
-        <h1 class="title"><marquee><span class="highlight">Grand-Leakage </span>- News Portal.Com</marquee></h1>
+        <h1 class="title">
+            <marquee><span class="highlight">Grand-Leakage</span> - News Portal.Com</marquee>
+        </h1>
         <nav class="nav">
-            <a href="https://www.instagram.com/haris984290"><div class="instagram"><ion-icon name="logo-instagram"></ion-icon></div></a>
+            <div class="category-filter">
+                <label for="categorySelect"
+                    style="color: var(--text-light); margin-right: 0.5rem; font-weight: 600;">Category:</label>
+                <select id="categorySelect" class="category-select" onchange="filterByCategory(this.value)">
+                    <option value="All">All News</option>
+                    <option value="Politics">Politics</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Technology">Technology</option>
+                    <option value="Business">Business</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Health">Health</option>
+                    <option value="Science">Science</option>
+                    <option value="World">World</option>
+                    <option value="Local">Local</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <a href="https://www.instagram.com/haris984290">
+                <div class="instagram"><ion-icon name="logo-instagram"></ion-icon></div>
+            </a>
             <button class="buttonLogin">Login</button>
         </nav>
     </header>
     <div id="cover" class="cover">
-        <div class="wrapper" >
-        <span class="closeIcon"><ion-icon name="close-outline"></ion-icon></span>
-        <div class="loginBox">
-            <h2>Login</h2>  
+        <div class="wrapper">
+            <span class="closeIcon"><ion-icon name="close-outline"></ion-icon></span>
+            <div class="loginBox">
+                <h2>Login</h2>
                 <div class="inputbox">
                     <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
                     <input type="email" name="email" id="emailL" required>
@@ -29,37 +60,37 @@
                     <input type="password" name="password" id="passwordL" required>
                     <label>Password</label>
                 </div>
-               <input type="submit" id="signin" value="Login" class="btn">
+                <input type="submit" id="signin" value="Login" class="btn">
                 <div class="loginRegister">
-                    <p>Don't Have an account  <a href="#" class="registerlink">Register</a></p>
-                </div>  
-        </div>
-
-        <div class="registerBox">
-            <h2>Register</h2>
-            <div class="form">
-                <div class="inputbox">
-                    <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
-                    <input type="email" name="email" id="emailC" required>
-                    <label>Email</label>
-                </div>
-                <div class="inputbox">
-                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
-                    <input type="password" name="password" id="passwordC" required>
-                    <label>Password</label>
-                </div>
-                <input type="submit" id="signup" value="Create Account" class="btn">
-                <div class="loginRegister">
-                    <p> Alredy have an account  <a href="#" class="loginlink">Login</a></p>
+                    <p>Don't Have an account <a href="#" class="registerlink">Register</a></p>
                 </div>
             </div>
-            
-        </div>
+
+            <div class="registerBox">
+                <h2>Register</h2>
+                <div class="form">
+                    <div class="inputbox">
+                        <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                        <input type="email" name="email" id="emailC" required>
+                        <label>Email</label>
+                    </div>
+                    <div class="inputbox">
+                        <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                        <input type="password" name="password" id="passwordC" required>
+                        <label>Password</label>
+                    </div>
+                    <input type="submit" id="signup" value="Create Account" class="btn">
+                    <div class="loginRegister">
+                        <p> Alredy have an account <a href="#" class="loginlink">Login</a></p>
+                    </div>
+                </div>
+
+            </div>
 
 
         </div>
     </div>
-    
+
     <main id="main">
         <section id="top-news">
             <h2>News</h2>
@@ -73,19 +104,26 @@
             </div>
         </section>
     </main>
-    
+
     <footer>
-        <a href="https://www.instagram.com/haris984290"><div class="instagram"><ion-icon name="logo-instagram"></ion-icon></div></a>
-        <p><span class="highlight">&copy; 2024 News Portal.</span> All rights reserved.</p>
+        <a href="https://www.instagram.com/haris984290">
+            <div class="instagram"><ion-icon name="logo-instagram"></ion-icon></div>
+        </a>
+        <p><span class="highlight">&copy; 2024 Grand-Leakage News Portal.</span> All rights reserved.</p>>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+            <a href="terms.html" style="color: #48bb78; text-decoration: none; margin: 0 1rem;">Terms & Conditions</a> |
+            <a href="terms.html#privacy" style="color: #48bb78; text-decoration: none; margin: 0 1rem;">Privacy
+                Policy</a>
+        </p>
     </footer>
-    
+
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
         import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
         import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-    
-       
+
+
         const firebaseConfig = {
             apiKey: "AIzaSyAGYH0CeVCQDESjcJdvikoKmeOyhLCYoyk",
             authDomain: "grand-lekage-web.firebaseapp.com",
@@ -104,8 +142,10 @@
         const auth = getAuth();
 
         let allArticles = [];
+        let filteredArticles = [];
         let currentPage = 1;
-        const articlesPerPage = 2;
+        const articlesPerPage = 10;
+        let currentCategory = 'All';
 
         const newsContainer = document.getElementById('news-articles');
         const prevBtn = document.getElementById('prev-btn');
@@ -118,6 +158,7 @@
             get(dbRef).then((snapshot) => {
                 if (snapshot.exists()) {
                     allArticles = Object.values(snapshot.val());
+                    filteredArticles = allArticles; // Initially show all
                     displayArticles();
                     updatePaginationControls();
                 } else {
@@ -128,14 +169,33 @@
             });
         }
 
+        // Filter articles by category
+        window.filterByCategory = function (category) {
+            currentCategory = category;
+            currentPage = 1; // Reset to first page
+
+            if (category === 'All') {
+                filteredArticles = allArticles;
+            } else {
+                filteredArticles = allArticles.filter(article => article.Subject === category);
+            }
+
+            displayArticles();
+            updatePaginationControls();
+        };
+
         // Display articles based on the current page
         function displayArticles() {
             newsContainer.innerHTML = '';
             const startIndex = (currentPage - 1) * articlesPerPage;
             const endIndex = startIndex + articlesPerPage;
-            const currentArticles = allArticles.slice(startIndex, endIndex);
+            const currentArticles = filteredArticles.slice(startIndex, endIndex);
 
             currentArticles.forEach(article => {
+                // Determine what to display for publisher
+                const publisherDisplay = article.PublisherName || article.PublisherEmail || 'Anonymous';
+                const contactDisplay = article.ContactDetail || '';
+
                 const articleHTML = `
                     <article class="artical">
                         <div class="newsArtical">
@@ -149,6 +209,10 @@
                                     <td class="td2">
                                         <h5 class="newsSubject">${article.Subject}</h5>
                                         <p class="newsContent">${article.Content}</p>
+                                        <div class="publisher-info" style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--border-color); font-size: 0.85rem; color: var(--text-secondary);">
+                                            <strong style="color: var(--primary-color);">📝 Published by:</strong> ${publisherDisplay}
+                                            ${contactDisplay ? `<br><strong style="color: var(--primary-color);">📞 Contact:</strong> ${contactDisplay}` : ''}
+                                        </div>
                                     </td>
                                 </tr>
                             </table>
@@ -161,9 +225,9 @@
 
         // Update pagination controls
         function updatePaginationControls() {
-            pageInfo.textContent = `Page ${currentPage} of ${Math.ceil(allArticles.length / articlesPerPage)}`;
+            pageInfo.textContent = `Page ${currentPage} of ${Math.ceil(filteredArticles.length / articlesPerPage)}`;
             prevBtn.disabled = currentPage === 1;
-            nextBtn.disabled = currentPage * articlesPerPage >= allArticles.length;
+            nextBtn.disabled = currentPage * articlesPerPage >= filteredArticles.length;
         }
 
         // Event listeners for pagination buttons
@@ -187,43 +251,42 @@
         fetchArticles();
 
 
-                
-    // Create new user account .....
-    signup.addEventListener("click",(e)=>{
-      var email=document.getElementById("emailC").value;
-      var password=document.getElementById("passwordC").value;
-      console.log(auth);
-     
-      createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
-        const user = userCredential.user;
-        console.log("created New user account successfully....");
-        alert("created New user account successfully....");
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        alert(errorMessage);
-        console.log(errorMessage)
-      });
-    })
-    // Login to new usert account ... 
-    signin.addEventListener("click",(e)=>{
-      var email=document.getElementById("emailL").value;
-      var password=document.getElementById("passwordL").value;
-    
-      signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
-        const user = userCredential.user;
-        console.log("successfully loggedin",user);   
-        window.location.href="upload.html";
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        alert(errorMessage);
-        console.log(errorMessage)     
-      });
+        // Create new user account .....
+        signup.addEventListener("click", (e) => {
+            var email = document.getElementById("emailC").value;
+            var password = document.getElementById("passwordC").value;
+            console.log(auth);
 
-    })
+            createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
+                const user = userCredential.user;
+                console.log("created New user account successfully....");
+                alert("created New user account successfully....");
+            })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    alert(errorMessage);
+                    console.log(errorMessage)
+                });
+        })
+        // Login to new usert account ... 
+        signin.addEventListener("click", (e) => {
+            var email = document.getElementById("emailL").value;
+            var password = document.getElementById("passwordL").value;
+
+            signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
+                const user = userCredential.user;
+                console.log("successfully loggedin", user);
+                window.location.href = "upload.html";
+            })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    alert(errorMessage);
+                    console.log(errorMessage)
+                });
+
+        })
 
 
 
@@ -233,4 +296,5 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>

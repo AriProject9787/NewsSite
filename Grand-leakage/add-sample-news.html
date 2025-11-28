@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Sample News - Grand-Leakage</title>
+    <style>
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            transition: transform 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .status {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .status.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #34d399;
+            display: block;
+        }
+
+        .status.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #ef4444;
+            display: block;
+        }
+
+        .info {
+            background: #e0e7ff;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #667eea;
+        }
+
+        .article-list {
+            margin-top: 1rem;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .article-item {
+            padding: 0.5rem;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📰 Add Sample News Articles</h1>
+
+        <div class="info">
+            <strong>ℹ️ Information:</strong><br>
+            This will add 10 sample news articles to your Firebase database across different categories.
+        </div>
+
+        <button class="btn" id="addNewsBtn">Add 10 Sample News Articles</button>
+
+        <div class="status" id="statusMsg"></div>
+
+        <div class="article-list" id="articleList"></div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAGYH0CeVCQDESjcJdvikoKmeOyhLCYoyk",
+            authDomain: "grand-lekage-web.firebaseapp.com",
+            projectId: "grand-lekage-web",
+            storageBucket: "grand-lekage-web.appspot.com",
+            messagingSenderId: "185245033432",
+            appId: "1:185245033432:web:258e597d6b2b7ad46f48ad",
+            measurementId: "G-B4GCWFR374"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        const sampleNews = [
+            {
+                title: "Cyclone Ditwa: At least 40 dead in Sri Lanka after severe floods",
+                category: "World",
+                content: "At least 40 people have died in Sri Lanka due to severe floods caused by Cyclone Ditwa. The cyclone brushed the country's eastern coast, bringing heavy rains and strong winds. Rescue operations are underway as thousands have been displaced from their homes. The disaster management center has issued warnings for further landslides in hill country areas.",
+                imgUrl: "https://images.unsplash.com/photo-1527482797697-8795b05a13fe?w=800&h=600&fit=crop",
+                publisherName: "Arirama Selvam M",
+                contactDetail: "world@grand-leakage.com"
+            },
+            {
+                title: "Hong Kong's Deadliest Fire in 77 Years Kills 65",
+                category: "World",
+                content: "Authorities are investigating the cause of a fire in a Hong Kong skyscraper that killed 65 people, making it the deadliest fire in the city in 77 years. Questions are being raised about the role of substandard protective mesh and plastic scaffolding in the rapid spread of the blaze. The fire has sparked a city-wide safety review of older buildings.",
+                imgUrl: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop",
+                publisherName: "Arirama Selvam M",
+                contactDetail: "world@grand-leakage.com"
+            },
+            {
+                title: "Delhi's AQI Worsens After Grap-3 Restrictions Removed",
+                category: "Local",
+                content: "Air quality in Delhi has deteriorated to 'very poor' levels just a day after Stage-3 restrictions under the Graded Response Action Plan (GRAP) were lifted. The Commission for Air Quality Management (CAQM) has decided to maintain the status quo despite the worsening conditions. Residents are advised to limit outdoor activities during early morning and late evening hours.",
+                imgUrl: "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=800&h=600&fit=crop",
+                publisherName: "Arirama Selvam M",
+                contactDetail: "local@grand-leakage.com"
+            },
+            {
+                title: "Scores Killed as Floods Sweep Several Asian Nations",
+                category: "World",
+                content: "Heavy monsoon rains and typhoons have triggered widespread flooding across several Asian nations, resulting in scores of casualties. Indonesia and Sri Lanka are among the hardest hit, with reports of landslides and submerged villages. International aid agencies are mobilizing to provide relief supplies to the affected regions.",
+                imgUrl: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&h=600&fit=crop",
+                publisherName: "Arirama Selvam M",
+                contactDetail: "world@grand-leakage.com"
+            },
+            {
+                title: "Zelensky's Chief of Staff Resigns After Anti-Corruption Raid",
+                category: "World",
+                content: "In a significant political development, Ukrainian President Volodymyr Zelensky's chief of staff has resigned following an anti-corruption raid. The move comes as the government intensifies its efforts to tackle corruption amidst the ongoing conflict. The resignation is seen as part of a broader shake-up in the administration to ensure transparency.",
+                imgUrl: "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=800&h=600&fit=crop",
+                publisherName: "Arirama Selvam M",
+                contactDetail: "world@grand-leakage.com"
+            },
+            {
+                title: "Hungary's Orban Defies EU Partners, Meets Putin in Moscow",
+                category: "World",
+                content: "Hungarian Prime Minister Viktor Orban has traveled to Moscow to meet with Russian President Vladimir Putin, defying the stance of his European Union partners. The meeting has drawn criticism from other EU leaders who have sought to isolate Russia diplomatically. Orban described the visit as a 'peace mission' aimed at opening channels of communication.",
+                imgUrl: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&h=600&fit=crop",
+                publisherName: "Arirama Selvam M",
+                contactDetail: "world@grand-leakage.com"
+            },
+            {
+                title: "Ten Killed in Deadliest Israeli Raid for Months in Southern Syria",
+                category: "World",
+                content: "A raid in southern Syria has resulted in ten deaths, marking the deadliest such incident in months. The operation targeted a village near the border, leading to an exchange of fire with militant groups. The incident has raised tensions in the already volatile region, with calls for restraint from the international community.",
+                imgUrl: "https://images.unsplash.com/photo-1569163139394-de4798aa62b6?w=800&h=600&fit=crop",
+                publisherName: "Arirama Selvam M",
+                contactDetail: "world@grand-leakage.com"
+            }
+        ];
+
+        document.getElementById('addNewsBtn').addEventListener('click', async () => {
+            const btn = document.getElementById('addNewsBtn');
+            const statusMsg = document.getElementById('statusMsg');
+            const articleList = document.getElementById('articleList');
+
+            btn.disabled = true;
+            btn.textContent = 'Adding News...';
+            statusMsg.className = 'status';
+            statusMsg.style.display = 'none';
+            articleList.innerHTML = '';
+
+            try {
+                let successCount = 0;
+
+                for (const article of sampleNews) {
+                    const datetime = new Date().toLocaleString('en-US', {
+                        day: '2-digit',
+                        month: '2-digit',
+                        year: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    });
+
+                    await set(ref(db, 'news/' + article.title), {
+                        Datetime: datetime,
+                        Title: article.title,
+                        Subject: article.category,
+                        Content: article.content,
+                        ImgUrl: article.imgUrl,
+                        PublisherName: article.publisherName,
+                        ContactDetail: article.contactDetail,
+                        PublisherEmail: 'admin@grand-leakage.com'
+                    });
+
+                    successCount++;
+
+                    const item = document.createElement('div');
+                    item.className = 'article-item';
+                    item.textContent = `✓ ${article.title} (${article.category})`;
+                    articleList.appendChild(item);
+
+                    // Small delay to avoid overwhelming Firebase
+                    await new Promise(resolve => setTimeout(resolve, 200));
+                }
+
+                statusMsg.className = 'status success';
+                statusMsg.innerHTML = `<strong>✓ Success!</strong><br>Successfully added ${successCount} news articles to your database.<br><br>🔄 Refresh your index.html page to see the articles.`;
+                btn.textContent = '✓ Articles Added Successfully';
+
+            } catch (error) {
+                console.error('Error:', error);
+                statusMsg.className = 'status error';
+                statusMsg.innerHTML = `<strong>✗ Error!</strong><br>${error.message}`;
+                btn.disabled = false;
+                btn.textContent = 'Try Again';
+            }
+        });
+    </script>
+</body>
+
+</html>
